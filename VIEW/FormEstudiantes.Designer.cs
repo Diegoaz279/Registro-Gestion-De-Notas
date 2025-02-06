@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEstudiantes));
             this.txtruso = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtfrances = new System.Windows.Forms.TextBox();
@@ -46,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtruso
@@ -167,6 +170,7 @@
             this.btnEstudianteNota.TabIndex = 40;
             this.btnEstudianteNota.Text = "ESTUDIANTES Y NOTAS";
             this.btnEstudianteNota.UseVisualStyleBackColor = false;
+            this.btnEstudianteNota.Click += new System.EventHandler(this.btnEstudianteNota_Click);
             // 
             // btnAtrasNota
             // 
@@ -178,6 +182,7 @@
             this.btnAtrasNota.TabIndex = 39;
             this.btnAtrasNota.Text = "ATRAS";
             this.btnAtrasNota.UseVisualStyleBackColor = false;
+            this.btnAtrasNota.Click += new System.EventHandler(this.btnAtrasNota_Click);
             // 
             // label3
             // 
@@ -221,12 +226,25 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(764, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(34, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 54;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // FormEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.ClientSize = new System.Drawing.Size(810, 837);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.cmbCursos);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtruso);
@@ -245,8 +263,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEstudiantes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEstudiantes";
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +293,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.PictureBox btnCerrar;
     }
 }

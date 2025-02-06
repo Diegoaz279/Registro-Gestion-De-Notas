@@ -16,7 +16,19 @@ namespace Registro_Gestion_De_Notas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCursos());
+
+            var fromestudiante = new FormCursos();
+            if (fromestudiante.ShowDialog() == DialogResult.OK)
+            {
+                
+                var estudiantes = new FormEstudiantes(); // Instancia del formulario principal
+                Application.Run(estudiantes); // Ejecuta la aplicación con el formulario principal. ¡Solo se llama una vez!
+            }
+            else
+            {
+                // Si el login falla o se cancela, la aplicación termina.
+                Application.Exit(); // Cierra la aplicación 
+            }
         }
     }
 }

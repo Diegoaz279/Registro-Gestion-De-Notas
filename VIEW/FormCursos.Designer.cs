@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCursos));
             this.label1 = new System.Windows.Forms.Label();
             this.dtgAgregarCurso = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,7 +37,9 @@
             this.txtEstudiantesCursoAgregar = new System.Windows.Forms.TextBox();
             this.btnAgregarCurso = new System.Windows.Forms.Button();
             this.btnEstudianteNota = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAgregarCurso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,14 +54,16 @@
             // 
             // dtgAgregarCurso
             // 
+            this.dtgAgregarCurso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgAgregarCurso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dtgAgregarCurso.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dtgAgregarCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgAgregarCurso.Location = new System.Drawing.Point(130, 224);
+            this.dtgAgregarCurso.Location = new System.Drawing.Point(88, 226);
             this.dtgAgregarCurso.Name = "dtgAgregarCurso";
             this.dtgAgregarCurso.ReadOnly = true;
             this.dtgAgregarCurso.RowHeadersWidth = 62;
             this.dtgAgregarCurso.RowTemplate.Height = 28;
-            this.dtgAgregarCurso.Size = new System.Drawing.Size(559, 150);
+            this.dtgAgregarCurso.Size = new System.Drawing.Size(634, 150);
             this.dtgAgregarCurso.TabIndex = 1;
             // 
             // label2
@@ -121,6 +126,19 @@
             this.btnEstudianteNota.TabIndex = 7;
             this.btnEstudianteNota.Text = "ESTUDIANTES Y NOTAS";
             this.btnEstudianteNota.UseVisualStyleBackColor = false;
+            this.btnEstudianteNota.Click += new System.EventHandler(this.btnEstudianteNota_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(764, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(34, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 8;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FormCursos
             // 
@@ -128,6 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(810, 837);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEstudianteNota);
             this.Controls.Add(this.btnAgregarCurso);
             this.Controls.Add(this.txtEstudiantesCursoAgregar);
@@ -136,9 +155,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtgAgregarCurso);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCursos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAgregarCurso";
             ((System.ComponentModel.ISupportInitialize)(this.dtgAgregarCurso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,6 +176,7 @@
         private System.Windows.Forms.TextBox txtEstudiantesCursoAgregar;
         private System.Windows.Forms.Button btnAgregarCurso;
         private System.Windows.Forms.Button btnEstudianteNota;
+        private System.Windows.Forms.PictureBox btnCerrar;
     }
 }
 

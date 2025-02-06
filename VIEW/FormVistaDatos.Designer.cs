@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVistaDatos));
             this.btnAtrasVer = new System.Windows.Forms.Button();
             this.dtgVerCurso = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVerCurso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAtrasVer
@@ -48,6 +51,8 @@
             // 
             // dtgVerCurso
             // 
+            this.dtgVerCurso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgVerCurso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dtgVerCurso.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dtgVerCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgVerCurso.Location = new System.Drawing.Point(143, 198);
@@ -68,19 +73,35 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "VER LOS CURSOS";
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(1303, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(34, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 15;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // FormVistaDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.ClientSize = new System.Drawing.Size(1349, 782);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAtrasVer);
             this.Controls.Add(this.dtgVerCurso);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormVistaDatos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormVistaDatos";
             this.Load += new System.EventHandler(this.FormVistaDatos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgVerCurso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,5 +111,6 @@
         private System.Windows.Forms.Button btnAtrasVer;
         private System.Windows.Forms.DataGridView dtgVerCurso;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox btnCerrar;
     }
 }

@@ -50,9 +50,9 @@ namespace Registro_Gestion_De_Notas.PRESENTADOR
             }
         }
 
-        public List<Estudiantes> ObtenerEstudiantes(int cursoId)
+        public List<Cursos> ObtenerCursos()
         {
-            return _context.Estudiantes.Where(e => e.CursoId == cursoId).ToList();
+            return _context.Cursos.ToList();
         }
     }
 }
