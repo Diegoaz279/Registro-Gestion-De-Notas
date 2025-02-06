@@ -24,51 +24,36 @@ namespace Registro_Gestion_De_Notas.PRESENTER
         {
             try
             {
-                var cursos = db.Cursos.ToList();
-                var estudiantes = db.Estudiantes.ToList();
-                var notas = db.Notas.ToList();
-
-                List<object[]> listaDatos = new List<object[]>();
-
-                foreach (var curso in cursos)
-                {
-                    var alumnosCurso = estudiantes.Where(e => e.CursoId == curso.Id).ToList();
-                    object[][] notasJagged = new object[alumnosCurso.Count][];
-
-                    for (int i = 0; i < alumnosCurso.Count; i++)
+                var listaDatos = db.Estudiantes
+                    .Join(db.Notas, e => e.Id, n => n.EstudianteId, (e, n) => new
                     {
-                        var notaAlumno = notas.FirstOrDefault(n => n.EstudianteId == alumnosCurso[i].Id);
-                        if (notaAlumno != null)
-                        {
-                            notasJagged[i] = new object[] {
-                                curso.NombreCurso,
-                                alumnosCurso[i].Nombre,
-                                notaAlumno.Ingles,
-                                notaAlumno.Español,
-                                notaAlumno.Frances,
-                                notaAlumno.Ruso
-                            };
-                        }
-                    }
-
-                    listaDatos.AddRange(notasJagged);
-                }
-
-                vista.DtgVerCurso.DataSource = listaDatos
-                    .Select(n => new
+                        CursoId = e.CursoId,  // Guardamos el ID del curso
+                        Estudiante = e.Nombre,
+                        Inglés = n.Ingles,
+                        Español = n.Español,
+                        Francés = n.Frances,
+                        Ruso = n.Ruso
+                    })
+                    .ToList() // Convertimos a lista para evitar restricciones de EF
+                    .Select(x => new
                     {
-                        Curso = n[0],
-                        Estudiante = n[1],
-                        Inglés = n[2],
-                        Español = n[3],
-                        Francés = n[4],
-                        Ruso = n[5]
-                    }).ToList();
+                        Curso = db.Cursos.FirstOrDefault(c => c.Id == x.CursoId)?.NombreCurso ?? "Sin Curso",
+                        x.Estudiante,
+                        x.Inglés,
+                        x.Español,
+                        x.Francés,
+                        x.Ruso
+                    })
+                    .ToList();
+
+                vista.DtgVerCurso.DataSource = listaDatos;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}");
             }
         }
+
+
     }
 }
